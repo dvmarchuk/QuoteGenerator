@@ -12,11 +12,40 @@ project 1 - A Random Quote Generator
 ***/
 
 let quotes = [
-  "quote 1",
-  "quote 2",
-  "quote 3",
-  "quote 4",
-  "quote 5"
+  {
+    quote: 'Two things are infinite: the universe and human stupidity; and I\'m not sure about the universe.',
+    source: 'Albert Einstein',
+    citation: 'goodreads',
+    year: 'unknown'
+  },
+
+  {
+    quote: 'If you tell the truth, you don\'t have to remember anything.',
+    source: 'Mark Twain',
+    citation: 'goodreads',
+    year: '1935'
+  },
+  
+  {
+    quote: 'A day without sunshine is like, you know, night.',
+    source: 'Steve Martin',
+    citation: 'goodreads',
+    year: '2013'
+  },
+  
+  {
+    quote: 'Never put off till tomorrow what may be done day after tomorrow just as well.',
+    source: 'Mark Twain',
+    citation: 'goodreads',
+    year: '1870'
+  },
+  
+  {
+    quote: 'Never memorize something that you can look up.',
+    source: 'Albert Einstein',
+    citation: 'goodreads',
+    year: 'unknown'
+  }
 ];
 
 
@@ -25,10 +54,13 @@ let quotes = [
  * `getRandomQuote` function
 ***/
 
-let randomNum = Math.floor(Math.random()*quotes.length);
-console.log(randomNum);
 
 
+function getRandomQuote(){
+  let randomNum = Math.floor(Math.random()*quotes.length);
+  console.log(quotes[randomNum])
+  return quotes[randomNum];
+}
 
 
 
@@ -36,9 +68,25 @@ console.log(randomNum);
 /***
  * `printQuote` function
 ***/
-//<h1>`${randomQuote}`</h1>
+function printQuote(){
+let getRandomQ = getRandomQuote();
+let format = `<p class='quotes'>${getRandomQ.quote}</p><p class='source'>${getRandomQ.source}</p>`;
+
+// 6. set the innerHTML of the quote-box div to equal the 
+  // complete HTML string
+
+  document.querySelector('.quote-box').innerHTML = format;
+
+}
 
 
+//To get a random quote object, create a variable and set it equal to a call to the getRandomQuote() function.
+
+// Next create another variable and set it equal to two <p></p> elements. 
+// The first element should have a class equal to “quotes” and the 
+// randomQuote.quote property nested between the opening and closing tags. 
+// The second element should have a class equal to “source” and 
+// the randomQuote.source property nested between the tags.
 
 /***
  * click event listener for the print quote button
