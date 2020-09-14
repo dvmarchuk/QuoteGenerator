@@ -16,7 +16,7 @@ let quotes = [
     quote: 'Two things are infinite: the universe and human stupidity; and I\'m not sure about the universe.',
     source: 'Albert Einstein',
     citation: 'goodreads',
-    year: 'unknown'
+    year: ''
   },
 
   {
@@ -44,7 +44,7 @@ let quotes = [
     quote: 'Never memorize something that you can look up.',
     source: 'Albert Einstein',
     citation: 'goodreads',
-    year: 'unknown'
+    year: ''
   }
 ];
 
@@ -69,24 +69,21 @@ function getRandomQuote(){
  * `printQuote` function
 ***/
 function printQuote(){
-let getRandomQ = getRandomQuote();
-let format = `<p class='quotes'>${getRandomQ.quote}</p><p class='source'>${getRandomQ.source}</p>`;
+  let getRandomQ = getRandomQuote();
+  let format = `<p class='quotes'>${getRandomQ.quote}</p><p class='source'>${getRandomQ.source}</p>`;
 
-// 6. set the innerHTML of the quote-box div to equal the 
-  // complete HTML string
+  if(getRandomQ.citation !== ''){
+    format = `${format} <p class='citation'>${getRandomQ.citation}</p>`
+  }
+
+  if(getRandomQ.year !== ''){
+    format = ` ${format} <p class='year'>${getRandomQ.year}</p>`
+  }
 
   document.querySelector('.quote-box').innerHTML = format;
 
 }
 
-
-//To get a random quote object, create a variable and set it equal to a call to the getRandomQuote() function.
-
-// Next create another variable and set it equal to two <p></p> elements. 
-// The first element should have a class equal to “quotes” and the 
-// randomQuote.quote property nested between the opening and closing tags. 
-// The second element should have a class equal to “source” and 
-// the randomQuote.source property nested between the tags.
 
 /***
  * click event listener for the print quote button
