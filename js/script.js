@@ -11,17 +11,32 @@ project 1 - A Random Quote Generator
  * `quotes` array 
 ***/
 
+let quotes = [
+  "quote 1",
+  "quote 2",
+  "quote 3",
+  "quote 4",
+  "quote 5"
+];
+
 
 
 /***
  * `getRandomQuote` function
 ***/
 
+let randomNum = Math.floor(Math.random()*quotes.length);
+console.log(randomNum);
+
+
+
+
 
 
 /***
  * `printQuote` function
 ***/
+//<h1>`${randomQuote}`</h1>
 
 
 
