@@ -13,35 +13,35 @@ project 1 - A Random Quote Generator
 
 let quotes = [
   {
-    quote: 'Two things are infinite: the universe and human stupidity; and I\'m not sure about the universe.',
+    quote: '\"Two things are infinite: the universe and human stupidity; and I\'m not sure about the universe.\"',
     source: 'Albert Einstein',
     citation: 'goodreads',
     year: ''
   },
 
   {
-    quote: 'If you tell the truth, you don\'t have to remember anything.',
+    quote: '\"If you tell the truth, you don\'t have to remember anything.\"',
     source: 'Mark Twain',
     citation: 'goodreads',
     year: '1935'
   },
   
   {
-    quote: 'A day without sunshine is like, you know, night.',
+    quote: '\"A day without sunshine is like, you know, night.\"',
     source: 'Steve Martin',
     citation: 'goodreads',
     year: '2013'
   },
   
   {
-    quote: 'Never put off till tomorrow what may be done day after tomorrow just as well.',
+    quote: '\"Never put off till tomorrow what may be done day after tomorrow just as well.\"',
     source: 'Mark Twain',
     citation: 'goodreads',
     year: '1870'
   },
   
   {
-    quote: 'Never memorize something that you can look up.',
+    quote: '\"Never memorize something that you can look up.\"',
     source: 'Albert Einstein',
     citation: 'goodreads',
     year: ''
@@ -57,8 +57,7 @@ let quotes = [
 
 
 function getRandomQuote(){
-  let randomNum = Math.floor(Math.random()*quotes.length);
-  console.log(quotes[randomNum])
+  let randomNum = Math.floor(Math.random()*quotes.length); //finds a random number according to the number of quotes
   return quotes[randomNum];
 }
 
@@ -70,19 +69,25 @@ function getRandomQuote(){
 ***/
 function printQuote(){
   let getRandomQ = getRandomQuote();
-  let format = `<p class='quotes'>${getRandomQ.quote}</p><p class='source'>${getRandomQ.source}</p>`;
 
-  if(getRandomQ.citation !== ''){
-    format = `${format} <p class='citation'>${getRandomQ.citation}</p>`
+  let format = `<p class='quote'>${getRandomQ.quote}</p>`;
+  format += `<p class='source'>${getRandomQ.source}</p>`;
+
+  //Checks if the quote has a citation
+  if("citation" in getRandomQ){
+    format += "<span class='citation'> "+  getRandomQ.citation + "</span>";
   }
 
-  if(getRandomQ.year !== ''){
-    format = ` ${format} <p class='year'>${getRandomQ.year}</p>`
+  //Checks if the quote has a year
+  if("year" in getRandomQ){
+    format += "<span class='year'> "+  getRandomQ.year + "</span>";
   }
 
+  //Pushes everything to the page to be displayed
   document.querySelector('.quote-box').innerHTML = format;
 
 }
+
 
 
 /***
